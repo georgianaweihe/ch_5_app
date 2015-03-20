@@ -13,7 +13,8 @@ Rails.application.configure do
   config.eager_load = false
 
   # Configure static asset server for tests with Cache-Control for performance.
-  config.serve_static_assets  = true
+  #changed config.serve_static_assets' to 'config.serve_static_files' as per a DEPRECATION WARNING when I ran bundle exec rake test from Listing 3.12 in Hartl
+  config.serve_static_files  = true
   config.static_cache_control = 'public, max-age=3600'
 
   # Show full error reports and disable caching.
@@ -33,6 +34,17 @@ Rails.application.configure do
 
   # Print deprecation notices to the stderr.
   config.active_support.deprecation = :stderr
+  
+  #from a DEPRECATION WARNING after running Listing 3.14 in Hartls which said,
+  
+  #"You did not specify a value for the configuration option `active_support.test_order`. In Rails 5, the 
+  # default value of this option will change from `:sorted` to `:random`. To disable this warning and keep 
+  # the current behavior, you can add the following line to your `config/environments/test.rb`:
+  config.active_support.test_order = :sorted
+  #Alternatively, you can opt into the future behavior by setting this option to `:random`"
+  
+  # i included the above code
+  
 
   # Raises error for missing translations
   # config.action_view.raise_on_missing_translations = true
