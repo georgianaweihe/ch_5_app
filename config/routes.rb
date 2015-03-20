@@ -1,19 +1,15 @@
 Rails.application.routes.draw do
-  get 'static_pages/home'
-
+  #We replaced the
+    #get 'static_pages/home'
+  #from Hartl 3.5 with the root route,
+  root 'static_pages#home' #which changes the URL static_pages/home to the controller/action pair static_pages#home, 
+  #which ensures that GET requests get routed to the home action in the Static Pages controller.
   get 'static_pages/help'
-
   get 'static_pages/about'
   
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
-
-  # You can have the root of your site routed with "root"
-  # root 'welcome#index'
-
-  # Example of regular route:
-  #   get 'products/:id' => 'catalog#view'
-
+  
   # Example of named route that can be invoked with purchase_url(id: product.id)
   #   get 'products/:id/purchase' => 'catalog#purchase', as: :purchase
 

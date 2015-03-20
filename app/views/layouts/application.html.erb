@@ -1,14 +1,21 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <title>Workspace</title>
-  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
-  <%= csrf_meta_tags %>
-</head>
-<body>
-
-<%= yield %>
-
-</body>
+  <head>
+    <title><%= yield(:title) %> | Ruby on Rails Tutorial Sample App</title>
+    <%= stylesheet_link_tag    'application', media: 'all',
+                                              'data-turbolinks-track' => true %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+    <%= csrf_meta_tags %>
+    <!--This code (stylesheet_link_tag, javascript_include_tag and crf_meta_tags)
+    arranges to include the application stylesheet and JavaScript, which are part 
+    of the asset pipeline (Section 5.2.1), together with the Rails method csrf_meta_tags,
+    which prevents cross-site request forgery (CSRF), a type of malicious web attack.-->
+  </head>
+  <body>
+    <%= yield %>
+    <!--This code is responsible for inserting the contents of each page into the layout. 
+    It’s not important to know exactly how this works; what matters is that using this layout 
+    ensures that, for example, visiting the page /static_pages/home converts the contents of 
+    home.html.erb to HTML and then inserts it in place of the yield -->
+  </body>
 </html>
