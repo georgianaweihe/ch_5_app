@@ -75,4 +75,10 @@ Rails.application.configure do
 
   # Do not dump schema after migrations.
   config.active_record.dump_schema_after_migration = false
+  
+  group :production do
+    gem 'pg',             '0.17.1'
+    gem 'rails_12factor', '0.0.2'
+end
+
 end
