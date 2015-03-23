@@ -15,4 +15,7 @@
 /log/*.log
 /tmp
 
+#Ignore .c9 folder files
 /.c9
+
+#Ignore spring folder files
